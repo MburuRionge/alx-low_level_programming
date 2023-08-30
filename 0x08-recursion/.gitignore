@@ -1,0 +1,3 @@
+#ignore all main.c files
+*.main.c
+_putchar.c
