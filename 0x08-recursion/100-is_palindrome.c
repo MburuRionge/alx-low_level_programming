@@ -1,24 +1,5 @@
 #include "main.h"
-#include <stdlib.h>
 
-
-/**
- * is_palindrome - checks whether the string is palindrome
- * @s: a pointer to a string
- * return: (compare_string(s, 0, strlen_recursion(s-1)))
- */
-
-int is_palindrome (char *s)
-{
-	if (*s == '\0')
-	{
-		return (1);
-	}
-	else
-	{
-		return (check_pal(s, 0, _strlen_recursion(s - 1)));
-	}
-}
 /**
  * _strlen_recursion - the function is used compare two strings
  * @s: pointer to a string
@@ -54,4 +35,21 @@ int check_pal(char *s, int left, int right)
 	}
 	return (check_pal(s, left + 1, right - 1));
 
+}
+/**
+ * is_palindrome - checks whether the string is palindrome
+ * @s: a pointer to a string
+ * return: (compare_string(s, 0, strlen_recursion(s-1)))
+ */
+
+int is_palindrome (char *s)
+{
+if (*s == '\0')
+{
+return (1);
+}
+else
+{
+return (check_pal(s, 0, _strlen_recursion(s - 1)));
+}
 }
