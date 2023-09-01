@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
  * main - used to introduce two parameters argc and argv
  * @argc: used represent the number of arguments
