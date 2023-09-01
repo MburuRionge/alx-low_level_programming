@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
  * main - have two arguments
  * @argv: array of strings containing the arguments
