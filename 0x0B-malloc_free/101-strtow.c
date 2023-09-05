@@ -8,10 +8,10 @@
 int count_word(char *t)
 {
 	int flag, n, p;
-	
+
 	flag = 0;
 	p = 0;
-	
+
 	for (n = 0; t[n] != '\0'; n++)
 	{
 		if (t[n] == ' ')
@@ -40,18 +40,13 @@ char **strtow(char *str)
 	char **space, *ptr;
 	int v, m = 0, len = 0, words, n = 0, start, end;
 
-	while (*str + len)
+	while (*(str + len))
 		len++;
 	words = count_word(str);
 	if (words == 0)
 	{
 		return (NULL);
 	}
-
-	len++;
-	words = count_word(str);
-	if (words == 0)
-		return (NULL);
 
 	space = (char **) malloc(sizeof(char *) * (words + 1));
 	if (space == NULL)
@@ -79,6 +74,7 @@ char **strtow(char *str)
 		else if (n++ == 0)
 			start = v;
 	}
+
 	space[m] = NULL;
 
 	return (space);
