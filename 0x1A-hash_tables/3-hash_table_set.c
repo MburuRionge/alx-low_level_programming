@@ -54,8 +54,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht == NULL || ht->array == NULL || ht->size == 0 || key == NULL
 			|| strlen(key) == 0 || value == NULL)
 		return (0);
+
 	index = key_index((const unsigned char *)key, ht->size);
 	temp = ht->array[index];
+
 	while (temp != NULL)
 	{
 		if (strcmp(temp->key, key) == 0)
@@ -63,15 +65,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			new = strdup(value);
 			if (new == NULL)
 				return (0);
+
 			free(temp->value);
 			temp->value = new;
 			return (1);
 		}
 		temp = temp->next;
 	}
+
 	hash_node = make_hash_node(key, value);
 	if (hash_node == NULL)
 		return (0);
+	if (index >= ht->size)
+	{
+		free(hash_node->key);
+		free(hash_node->value);
+		free(hash_node);
+		return (0);
+	}
 	hash_node->next = ht->array[index];
 	ht->array[index] = hash_node;
 	return (1);
