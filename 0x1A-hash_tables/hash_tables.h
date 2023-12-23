@@ -1,5 +1,10 @@
-#ifndef HASH_TABLES.H
-#define HASH_TABLES.H
+#ifndef HASH_TABLES_H
+#define HASH_TABLES_H
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <string.h>
 
 /**
  * struct hash_node_s - Node of a hash table
@@ -37,6 +42,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
+hash_node_t *make_hash_node(const char *key, const char *value);
+
 /**
  * struct shash_node_s - Node of a sorted hash table
  *
