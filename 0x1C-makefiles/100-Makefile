@@ -14,7 +14,7 @@ clean:
 	@$(RM) -f *~ $(NAME)
 
 oclean:
-	@$(RM) -f $(SRC: .c=.o)
+	@$(RM) -f $(SRC:.c=.o)
 
 fclean: clean oclean
 
